@@ -4,16 +4,19 @@ photoApp.controller('photosController',
   function photosController($scope) {
     $scope.photos = [
       {
-        place: "Cambodia",
-        imageUrl: ""
+        country: "Cambodia",
+        imageUrl: "",
+        likeCount: 0
       },
       {
-        place: "France",
-        imageUrl: ""
+        country: "France",
+        imageUrl: "",
+        likeCount: 0
       },
       {
-        place: "South Africa",
-        imageUrl: ""
+        country: "South Africa",
+        imageUrl: "",
+        likeCount: 0
       }
     ]
   }
