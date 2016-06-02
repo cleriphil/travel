@@ -8,6 +8,15 @@
   </head>
   <body ng-cloak>
     <h1>Photos</h1>
+    <div ng-controller="PhotosController">
+      <div ng-repeat="photo in photos">
+          <div class="photoCol">
+            <img class="travelPhoto" src="{{photo.imageUrl}}"/>
+            <p>{{photo.country}}
+            <span class="pull-right">{{photo.likeCount}}</span></p>
+          </div>
+      </div>
+    </div>
 
     <script src="/lib/jquery.min.js"></script>
     <script src="/lib/underscore-1.4.4.min.js"></script>
