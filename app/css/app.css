@@ -1,12 +1,35 @@
 
 .travelPhoto {
   width:100%;
+  margin-bottom: 5px;
+}
+
+.photoCol:hover .likeStar {
+  display:block;
 }
 
 .photoCol {
   width: 34%;
   float: left;
-  margin: 0 15px;
+  margin: 5px 15px;
+}
+
+.likeStar {
+  display: none;
+}
+
+.likeStar .fa {
+  font-size: 21px;
+  cursor: pointer;
+  color: #00b3b3;
+}
+
+.likeCount {
+  color: #888;
+  font-size: 11px;
+}
+.likeStar .fa:hover {
+  color: #009a9a;
 }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak] ,.ng-cloak, .x-ng-cloak {
