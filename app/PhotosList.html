@@ -12,22 +12,47 @@
     <h1>Photos</h1>
 
     <div ng-controller="PhotosController">
-      Order By:
-      <select ng-model="sortorder" class="input-small">
-        <option selected value="-likeCount">Most Popular</option>
-        <option selected value="country">Country</option>
-        <option selected value="city">City</option>
-      </select>
 
-    <div ng-repeat="photo in photos | orderBy:sortorder">
-        <div class="photoCol">
-          <img class="travelPhoto" src="{{photo.imageUrl}}"/>
-          <p class="pull-left">{{photo.country}} <span class="likeCount"> {{photo.likeCount}} likes</span></p>
-          <div class="likeStar pull-right">
-            <div ng-click="like(photo)"><i class="fa fa-star" aria-hidden="true"></i></div>
+      <ul class="searchOptions">
+      <li>
+        Order By:
+        <select ng-model="sortorder" class="input-small">
+          <option selected value="-likeCount">Most Popular</option>
+          <option selected value="country">Country</option>
+          <option selected value="city">City</option>
+        </select>
+      </li>
+      <li>
+        Continent:
+        <select ng-model="query.continent">
+          <option selected value="Africa">Africa</option>
+          <option selected value="Antarctica">Antarctica</option>
+          <option selected value="Asia">Asia</option>
+          <option selected value="Australia">Australia</option>
+          <option selected value="Europe">Europe</option>
+          <option selected value="North America">North America</option>
+          <option selected value="South America">South America</option>
+          <option selected value="Central America">Central America</option>
+          <option selected value="Europe">Europe</option>
+          <option selected value="">View All</option>
+        </select>
+      </li>
+      <li>
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <input ng-model="query">
+      </li>
+    </ul>
+
+    </input>
+      <div ng-repeat="photo in photos | orderBy:sortorder | filter:query">
+          <div class="photoCol">
+            <img class="travelPhoto" src="{{photo.imageUrl}}"/>
+            <p class="pull-left">{{photo.country}} <span class="likeCount"> {{photo.likeCount}} likes</span></p>
+            <div class="likeStar pull-right">
+              <div ng-click="like(photo)"><i class="fa fa-star" aria-hidden="true"></i></div>
+            </div>
           </div>
-        </div>
-    </div>
+      </div>
     </div>
 
 
