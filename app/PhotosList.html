@@ -10,22 +10,33 @@
   </head>
   <body ng-cloak>
     <h1>Photos</h1>
+
     <div ng-controller="PhotosController">
-      <div ng-repeat="photo in photos">
-          <div class="photoCol">
-            <img class="travelPhoto" src="{{photo.imageUrl}}"/>
-            <p class="pull-left">{{photo.country}} <span class="likeCount"> {{photo.likeCount}} likes</span></p>
-            <div class="likeStar pull-right">
-              <div ng-click="like(photo)"><i class="fa fa-star" aria-hidden="true"></i></div>
-            </div>
+      Order By:
+      <select ng-model="sortorder" class="input-small">
+        <option selected value="-likeCount">Most Popular</option>
+        <option selected value="country">Country</option>
+        <option selected value="city">City</option>
+      </select>
+
+    <div ng-repeat="photo in photos | orderBy:sortorder">
+        <div class="photoCol">
+          <img class="travelPhoto" src="{{photo.imageUrl}}"/>
+          <p class="pull-left">{{photo.country}} <span class="likeCount"> {{photo.likeCount}} likes</span></p>
+          <div class="likeStar pull-right">
+            <div ng-click="like(photo)"><i class="fa fa-star" aria-hidden="true"></i></div>
           </div>
-      </div>
+        </div>
     </div>
+    </div>
+
+
 
     <script src="/lib/jquery.min.js"></script>
     <script src="/lib/underscore-1.4.4.min.js"></script>
     <script src="/lib/bootstrap.min.js"></script>
-    <script src="/lib/angular/angular.js"></script>
+    <!-- <script src="/lib/angular/angular.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="/lib/angular/angular-sanitize.js"></script>
     <script src="/js/app.js"></script>
     <script src="/js/controllers/PhotosController.js"></script>
