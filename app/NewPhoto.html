@@ -11,6 +11,21 @@
     <h1>Add New Photo</h1>
 
     <div ng-controller="NewPhotoController">
+      <form name="newPhotoForm">
+      <fieldset>
+        <label for="photoCity">City:</label>
+        <input id="photoCity" ng-model="photo.city" required type="text" placeholder="City">
+        <label for="photoCountry">Country:</label>
+        <input id="photoCountry" ng-model="photo.country" required type="text" placeholder="Country">
+        <label for="photoContinent">Continent:</label>
+        <input id="photoContinent" ng-model="photo.continent" required type="text" placeholder="Continent">
+        <label for="photoUrl">image Url:</label>
+        <input id="photoUrl" ng-model="photo.imageUrl" required type="text" placeholder="URL">
+        <img ng-src="{{photo.imageUrl}}" src=""/>
+        <button ng-disabled="newPhotoForm.$invalid" ng-click="savePhoto(photo, newPhotoForm)" type="submit" class="btn">Save</button>
+        <button ng-click="cancelNewPhoto()" type="button" class="btn">Cancel</button>
+      </fieldset>
+      </form>
     </div>
 
     <script src="/lib/jquery.min.js"></script>
@@ -20,7 +35,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="/lib/angular/angular-sanitize.js"></script>
     <script src="/js/app.js"></script>
-    <script src="/js/controllers/PhotosController.js"></script>
+    <script src="/js/controllers/NewPhotoController.js"></script>
     <script src="/js/filters.js"></script>
 
     </script>
