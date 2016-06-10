@@ -1,7 +1,7 @@
-photoApp.factory('photoData', function($resource){
+photoApp.factory('photoData', function ($http) {
   return {
     getPhoto: function() {
-      return $resource('/data/photo/:id', {id:'@id'}).get({id:1});
+      return $http({method: 'GET', url: '/data/photo/1'});
     }
   };
 });
