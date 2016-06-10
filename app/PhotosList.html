@@ -4,55 +4,68 @@
     <meta charset="utf-8">
     <title>Travel Photos</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
     <link rel="stylesheet" href="/css/app.css" media="screen" title="no title" charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
     <script src="https://use.fontawesome.com/b0fb5eddc4.js"></script>
   </head>
   <body ng-cloak>
-    <h1>Photos</h1>
+
 
     <div ng-controller="PhotosController">
 
-      <ul class="searchOptions">
-      <li>
-        Order By:
-        <select ng-model="sortorder" class="input-small">
-          <option selected value="-likeCount">Most Popular</option>
-          <option selected value="country">Country</option>
-          <option selected value="city">City</option>
-        </select>
-      </li>
-      <li>
-        Continent:
-        <select ng-model="query.continent">
-          <option selected value="Africa">Africa</option>
-          <option selected value="Antarctica">Antarctica</option>
-          <option selected value="Asia">Asia</option>
-          <option selected value="Australia">Australia</option>
-          <option selected value="Europe">Europe</option>
-          <option selected value="North America">North America</option>
-          <option selected value="South America">South America</option>
-          <option selected value="Central America">Central America</option>
-          <option selected value="Europe">Europe</option>
-          <option selected value="">View All</option>
-        </select>
-      </li>
-      <li>
-        <i class="fa fa-search" aria-hidden="true"></i>
-        <input ng-model="query"></input>
-      </li>
-    </ul>
+      <header class="{{active}}">
+        <h1>Travel Album</h1>
+        <nav class="{{active}} colorOptions" ng-click="$event.preventDefault()">
+          <div href="#" class="orange" ng-click="active='orange'"></div>
+          <div href="#" class="purple" ng-click="active='purple'"></div>
+          <div href="#" class="blue" ng-click="active='blue'"></div>
+          <div href="#" class="yellow" ng-click="active='yellow'"></div>
+        </nav>
+        <p ng-hide="active">choose a color </p>
+      </header>
 
-      <div ng-repeat="photo in photos | orderBy:sortorder | filter:query">
-          <div class="photoCol">
-            <img class="travelPhoto" ng-src="{{photo.imageUrl}}"/>
-            <p class="pull-left">{{photo.country}} <span class="likeCount"> {{photo.likeCount}} likes</span></p>
-            <div class="likeStar pull-right">
-              <div ng-click="like(photo)"><i class="fa fa-star" aria-hidden="true"></i></div>
+      <div class="mainContent">
+        <ul class="searchOptions">
+        <li>
+          Order By:
+          <select ng-model="sortorder" class="input-small">
+            <option selected value="-likeCount">Most Popular</option>
+            <option selected value="country">Country</option>
+            <option selected value="city">City</option>
+          </select>
+        </li>
+        <li>
+          Continent:
+          <select ng-model="query.continent">
+            <option selected value="Africa">Africa</option>
+            <option selected value="Antarctica">Antarctica</option>
+            <option selected value="Asia">Asia</option>
+            <option selected value="Australia">Australia</option>
+            <option selected value="Europe">Europe</option>
+            <option selected value="North America">North America</option>
+            <option selected value="South America">South America</option>
+            <option selected value="Central America">Central America</option>
+            <option selected value="Europe">Europe</option>
+            <option selected value="">View All</option>
+          </select>
+        </li>
+        <li>
+          <i class="fa fa-search" aria-hidden="true"></i>
+          <input ng-model="query"></input>
+        </li>
+      </ul>
+
+        <div ng-repeat="photo in photos | orderBy:sortorder | filter:query">
+            <div class="photoCol">
+              <img class="travelPhoto" ng-src="{{photo.imageUrl}}"/>
+              <p class="pull-left">{{photo.country}} <span class="likeCount"> {{photo.likeCount}} likes</span></p>
+              <div class="likeStar pull-right">
+                <div ng-click="like(photo)"><i class="fa fa-star" aria-hidden="true"></i></div>
+              </div>
             </div>
-          </div>
-      </div>
-    </div>
+        </div>
+      </div> <!-- end MainContent -->
+    </div> <!-- end PhotosController -->
 
     <script src="/lib/jquery.min.js"></script>
     <script src="/lib/underscore-1.4.4.min.js"></script>

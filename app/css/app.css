@@ -40,3 +40,55 @@
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak] ,.ng-cloak, .x-ng-cloak {
   display:none;
 }
+
+header {
+  padding-top:15px;
+  margin-bottom: 15px;
+  height:86px;
+  background-color: #668014;
+}
+
+header h1 {
+  margin: 9px 0 0 41px;;
+  color:#fff;
+  font-family: 'Satisfy', cursive;
+}
+
+header p {
+  float: right;
+  font-size: 10px;
+}
+
+.mainContent {
+  overflow: hidden;
+  width: 940px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.colorOptions {
+  margin-right: 8px;
+}
+
+.colorOptions div {
+  width: 14px;
+  height: 14px;
+  margin-right: 2px;
+  float: right;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+
+.yellow {
+  background-color: #FFD700;
+}
+.blue {
+  background-color: #436EEE;
+}
+.orange {
+  background-color: #FF8C69;
+}
+.purple {
+  background-color: #5959AB;
+}
