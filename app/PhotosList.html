@@ -20,9 +20,10 @@
           <div href="#" class="purple" ng-click="active='purple'"></div>
           <div href="#" class="blue" ng-click="active='blue'"></div>
           <div href="#" class="yellow" ng-click="active='yellow'"></div>
+          <p ng-hide="active"><i class="fa fa-caret-right" aria-hidden="true"></i>&nbsp;</p>
         </nav>
-        <p ng-hide="active">choose a color </p>
       </header>
+
 
       <div class="mainContent">
         <ul class="searchOptions">
@@ -49,16 +50,22 @@
             <option selected value="">View All</option>
           </select>
         </li>
+
         <li>
           <i class="fa fa-search" aria-hidden="true"></i>
           <input ng-model="query"></input>
         </li>
+
+        <input type="checkbox" ng-model="showDates"> View Dates<br/>
+
+
+
       </ul>
 
         <div ng-repeat="photo in photos | orderBy:sortorder | filter:query">
             <div class="photoCol">
               <img class="travelPhoto" ng-src="{{photo.imageUrl}}"/>
-              <p class="pull-left">{{photo.country}} <span class="likeCount"> {{photo.likeCount}} likes</span></p>
+              <p class="pull-left">{{photo.country}} <span ng-show="showDates"> &middot {{photo.tripDate}}</span> <span class="likeCount"> {{photo.likeCount}} likes</span></p>
               <div class="likeStar pull-right">
                 <div ng-click="like(photo)"><i class="fa fa-star" aria-hidden="true"></i></div>
               </div>

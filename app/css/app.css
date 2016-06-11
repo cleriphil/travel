@@ -80,6 +80,12 @@ header p {
   cursor: pointer;
 }
 
+.colorOptions p i {
+    font-size: 18px;
+    line-height: 16px;
+    color:#fff;
+}
+
 .yellow {
   background-color: #FFD700;
 }
