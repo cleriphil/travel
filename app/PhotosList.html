@@ -66,7 +66,6 @@
               <img class="travelPhoto" ng-src="{{photo.imageUrl}}"/>
               <p class="pull-left">{{photo.country}} <span ng-show="showDates"> &middot {{photo.tripDate}}</span> <span class="likeCount"> {{photo.likeCount}} likes</span></p>
               <div class="likeStar pull-right">
-                <!--<div ng-disabled="buttonDisabled" id="photo{{photo.id}}" ng-click="like(photo.id)"><i class="fa fa-star" aria-hidden="true"></i></div>-->
                 <button id="photo{{photo.id}}" ng-click="like(photo.id)"><i class="fa fa-star" aria-hidden="true"></i></button>
               </div>
             </div>
