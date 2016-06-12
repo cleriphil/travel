@@ -14,9 +14,14 @@
   margin: 5px 15px;
 }
 
-.likeStar {
-  display: none;
+.likeStar button {
+  background-color: transparent;
+  border-style: none;
 }
+
+.likeStar button:focus {
+   outline: none;
+ }
 
 .likeStar .fa {
   font-size: 21px;
@@ -97,4 +102,8 @@ header p {
 }
 .purple {
   background-color: #5959AB;
+}
+
+div.disabled .fa {
+  color: red;
 }
